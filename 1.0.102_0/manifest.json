@@ -1,0 +1,89 @@
+{
+   "action": {
+      "default_icon": {
+         "16": "icons/icon-16.png",
+         "32": "icons/icon-32.png"
+      },
+      "default_title": "Open Claus"
+   },
+   "background": {
+      "service_worker": "service-worker-loader.js",
+      "type": "module"
+   },
+   "commands": {
+      "toggle-side-panel": {
+         "description": "Toggle Claus side panel",
+         "suggested_key": {
+            "default": "Ctrl+E",
+            "mac": "Command+E"
+         }
+      }
+   },
+   "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self'; connect-src 'self' https://api.openai.com https://api.typesafe.ai; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:;"
+   },
+   "description": "Claus: a browser agent that thinks, talks back and acts on follow-ups. Runs on GPT, with an optional decision model (Jev) that picks what to click.",
+   "host_permissions": [
+      "<all_urls>"
+   ],
+   "icons": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+   },
+   "manifest_version": 3,
+   "minimum_chrome_version": "116",
+   "name": "Claus",
+   "options_page": "options.html",
+   "permissions": [
+      "sidePanel",
+      "storage",
+      "scripting",
+      "debugger",
+      "tabGroups",
+      "tabs",
+      "alarms",
+      "notifications",
+      "webNavigation",
+      "unlimitedStorage",
+      "activeTab",
+      "offscreen",
+      "downloads"
+   ],
+   "version": "2.0.0",
+   "content_scripts": [
+      {
+         "all_frames": true,
+         "js": [
+            "assets/accessibility-tree.js"
+         ],
+         "matches": [
+            "<all_urls>"
+         ],
+         "run_at": "document_start"
+      },
+      {
+         "all_frames": false,
+         "js": [
+            "assets/agent-visual-indicator.js"
+         ],
+         "matches": [
+            "<all_urls>"
+         ],
+         "run_at": "document_idle"
+      }
+   ],
+   "web_accessible_resources": [
+      {
+         "matches": [
+            "<all_urls>"
+         ],
+         "resources": [
+            "assets/accessibility-tree.js",
+            "assets/agent-visual-indicator.js"
+         ],
+         "use_dynamic_url": false
+      }
+   ]
+}

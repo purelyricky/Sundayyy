@@ -1,0 +1,186 @@
+/**
+ * @readable-header
+ * FILE:      assets/sidepanel.css
+ * WAS:       sidepanel-B0qTF_- -.css (name in the original Vite build; only the name and formatting changed)
+ * OWNER:     anthropic-extension
+ * WHAT:      Small stylesheet for the side panel: timeline fade and block-enter animations, RTL origin, timeline status layer.
+ * WHY:       Linked by sidepanel.html.
+ * USED BY:   assets/mermaid-core.js (named in code (e.g. lazy-load list))
+ *            sidepanel.html (html tag)
+ * NEEDS:     none
+ */
+@keyframes timeline-fade-in {
+  0% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes timeline-block-enter {
+  0% {
+    opacity: 0;
+    filter: blur(4px);
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateY(5px) scale(0.9);
+  }
+  30% {
+    opacity: 0;
+    filter: blur(4px);
+    animation-timing-function: ease-out;
+    transform: none;
+  }
+  to {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  @keyframes timeline-block-enter {
+    0% {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+:root[dir="rtl"] {
+  --timeline-enter-origin-x: right;
+}
+.timeline-status-layer {
+  grid-area: 1/1;
+  align-items: center;
+  gap: 0.25rem;
+  min-width: 0;
+  display: inline-flex;
+}
+.timeline-status-enter {
+  animation: 0.25s ease-in-out timeline-fade-in;
+}
+.timeline-status-exit {
+  animation: 0.15s ease-out forwards timeline-fade-out;
+}
+.timeline-status-enter-after-spark {
+  animation: 0.25s ease-in-out 0.21s both timeline-fade-in;
+}
+.timeline-spark-depart {
+  animation: 0.42s linear forwards timeline-spark-depart;
+}
+@keyframes timeline-spark-depart {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .timeline-status-enter,
+  .timeline-status-enter-after-spark {
+    animation: none;
+  }
+  .timeline-status-layer.timeline-status-exit,
+  .timeline-status-layer.timeline-spark-depart {
+    display: none;
+  }
+}
+:root[data-reduce-motion="true"] .timeline-status-enter,
+:root[data-reduce-motion="true"] .timeline-status-enter-after-spark {
+  animation: none;
+}
+:root[data-reduce-motion="true"] .timeline-status-exit,
+:root[data-reduce-motion="true"] .timeline-spark-depart {
+  display: none;
+}
+.timeline-expand {
+  grid-template-rows: 1fr;
+  display: grid;
+}
+.timeline-expand > * {
+  align-self: start;
+  min-width: 0;
+  min-height: 0;
+}
+@keyframes timeline-expand {
+  0% {
+    opacity: 0;
+    grid-template-rows: 0fr;
+  }
+  to {
+    opacity: 1;
+    grid-template-rows: 1fr;
+  }
+}
+.timeline-expand-enter {
+  animation: 0.2s cubic-bezier(0.19, 1, 0.22, 1) timeline-expand;
+}
+@media (prefers-reduced-motion: reduce) {
+  .timeline-expand-enter {
+    animation: none;
+  }
+}
+:root[data-reduce-motion="true"] .timeline-expand-enter {
+  animation: none;
+}
+.timeline-pop-exit {
+  pointer-events: none;
+  animation: 0.18s ease-out forwards timeline-fade-out;
+}
+.timeline-block-fade-exit {
+  animation: 0.15s ease-out forwards timeline-fade-out;
+}
+@keyframes timeline-fade-out {
+  0% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes _fadeInText_4za3l_1 {
+  0% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+._animating_4za3l_10,
+._wordAnimating_4za3l_12 {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: no-preference) {
+  ._wordAnimating_4za3l_12 {
+    animation: 0.1s linear backwards _fadeInText_4za3l_1;
+  }
+}
+[data-reduce-motion="true"] ._wordAnimating_4za3l_12 {
+  animation: none;
+}
+@media screen {
+  ._blocks_4za3l_47 > * {
+    contain: layout;
+  }
+  ._blocks_4za3l_47 > table {
+    contain: none;
+  }
+  ._blocks_4za3l_47 > [data-mermaid] {
+    contain: layout paint;
+  }
+  @supports (overflow-clip-margin: 32px) {
+    ._blocks_4za3l_47
+      > :not(
+        table,
+        .katex-display,
+        .math-display,
+        [data-mermaid],
+        [data-no-contain-paint]
+      ) {
+      contain: layout paint;
+      overflow-clip-margin: 32px;
+    }
+  }
+}

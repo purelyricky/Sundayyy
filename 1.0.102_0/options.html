@@ -1,0 +1,31 @@
+<!doctype html>
+<!--
+  Claus settings page: HTML shell. Loads assets/options-page.js (Models, Permissions, Shortcuts and Options tabs)
+  plus shared chunks and stylesheets into the empty #root div. Declared as options_page in the manifest.
+-->
+<html
+  lang="en"
+  data-theme="claude"
+  data-mode="light"
+  data-density="comfortable"
+  class="cds-root"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/icon-128.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Claus Settings</title>
+    <script type="module" crossorigin src="/assets/options-page.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-and-language-list.js">
+    <link rel="modulepreload" crossorigin href="/assets/i18n.js">
+    <link rel="modulepreload" crossorigin href="/assets/auth-and-saved-prompts.js">
+    <link rel="modulepreload" crossorigin href="/assets/datadog-browser-sdk-core.js">
+    <link rel="modulepreload" crossorigin href="/assets/scheduling-fields.js">
+    <link rel="modulepreload" crossorigin href="/assets/skill-text.js">
+    <link rel="stylesheet" crossorigin href="/assets/i18n.css">
+    <link rel="stylesheet" crossorigin href="/assets/scheduling-fields.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

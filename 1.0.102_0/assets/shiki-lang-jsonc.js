@@ -1,0 +1,19 @@
+/**
+ * @readable-header
+ * FILE:      assets/shiki-lang-jsonc.js
+ * WAS:       jsonc-CgP6_DAo.js (name in the original Vite build; only the name and formatting changed)
+ * OWNER:     third-party - Shiki (grammar data)
+ * WHAT:      Syntax-highlighting grammar for "jsonc" (a TextMate grammar as frozen JSON, exported as default).
+ * WHY:       Colours code blocks tagged "jsonc" in the side panel. Fetched on demand through the language list in shiki-languages-index.js.
+ * USED BY:   assets/shiki-languages-index.js (named in code (e.g. lazy-load list))
+ * NEEDS:     none
+ * EXPORTS:   default  (export names are unchanged from the original; other files import them by these names)
+ */
+var n = [
+  Object.freeze(
+    JSON.parse(
+      '{"displayName":"JSON with Comments","name":"jsonc","patterns":[{"include":"#value"}],"repository":{"array":{"begin":"\\\\[","beginCaptures":{"0":{"name":"punctuation.definition.array.begin.json.comments"}},"end":"]","endCaptures":{"0":{"name":"punctuation.definition.array.end.json.comments"}},"name":"meta.structure.array.json.comments","patterns":[{"include":"#value"},{"match":",","name":"punctuation.separator.array.json.comments"},{"match":"[^]\\\\s]","name":"invalid.illegal.expected-array-separator.json.comments"}]},"comments":{"patterns":[{"begin":"/\\\\*\\\\*(?!/)","captures":{"0":{"name":"punctuation.definition.comment.json.comments"}},"end":"\\\\*/","name":"comment.block.documentation.json.comments"},{"begin":"/\\\\*","captures":{"0":{"name":"punctuation.definition.comment.json.comments"}},"end":"\\\\*/","name":"comment.block.json.comments"},{"captures":{"1":{"name":"punctuation.definition.comment.json.comments"}},"match":"(//).*$\\\\n?","name":"comment.line.double-slash.js"}]},"constant":{"match":"\\\\b(?:true|false|null)\\\\b","name":"constant.language.json.comments"},"number":{"match":"-?(?:0|[1-9]\\\\d*)(?:(?:\\\\.\\\\d+)?(?:[Ee][-+]?\\\\d+)?)?","name":"constant.numeric.json.comments"},"object":{"begin":"\\\\{","beginCaptures":{"0":{"name":"punctuation.definition.dictionary.begin.json.comments"}},"end":"}","endCaptures":{"0":{"name":"punctuation.definition.dictionary.end.json.comments"}},"name":"meta.structure.dictionary.json.comments","patterns":[{"include":"#objectkey"},{"include":"#comments"},{"begin":":","beginCaptures":{"0":{"name":"punctuation.separator.dictionary.key-value.json.comments"}},"end":"(,)|(?=})","endCaptures":{"1":{"name":"punctuation.separator.dictionary.pair.json.comments"}},"name":"meta.structure.dictionary.value.json.comments","patterns":[{"include":"#value"},{"match":"[^,\\\\s]","name":"invalid.illegal.expected-dictionary-separator.json.comments"}]},{"match":"[^}\\\\s]","name":"invalid.illegal.expected-dictionary-separator.json.comments"}]},"objectkey":{"begin":"\\"","beginCaptures":{"0":{"name":"punctuation.support.type.property-name.begin.json.comments"}},"end":"\\"","endCaptures":{"0":{"name":"punctuation.support.type.property-name.end.json.comments"}},"name":"string.json.comments support.type.property-name.json.comments","patterns":[{"include":"#stringcontent"}]},"string":{"begin":"\\"","beginCaptures":{"0":{"name":"punctuation.definition.string.begin.json.comments"}},"end":"\\"","endCaptures":{"0":{"name":"punctuation.definition.string.end.json.comments"}},"name":"string.quoted.double.json.comments","patterns":[{"include":"#stringcontent"}]},"stringcontent":{"patterns":[{"match":"\\\\\\\\(?:[\\"/\\\\\\\\bfnrt]|u\\\\h{4})","name":"constant.character.escape.json.comments"},{"match":"\\\\\\\\.","name":"invalid.illegal.unrecognized-string-escape.json.comments"}]},"value":{"patterns":[{"include":"#constant"},{"include":"#number"},{"include":"#string"},{"include":"#array"},{"include":"#object"},{"include":"#comments"}]}},"scopeName":"source.json.comments"}',
+    ),
+  ),
+];
+export { n as default };

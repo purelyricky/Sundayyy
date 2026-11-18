@@ -1,0 +1,46 @@
+<!doctype html>
+<!--
+  @readable-header
+  FILE:      gif_viewer.html
+  OWNER:     claus
+  WHAT:      HTML shell titled 'GIF Export - Claus' with a dark background that hosts #content and loads gif_viewer.js to show an exported GIF.
+  USED BY:   gif_viewer.js (named in code (e.g. lazy-load list))
+  NEEDS:     gif_viewer.js (named in code)
+-->
+<html>
+  <head>
+    <title>GIF Export - Claus</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: #1a1a1a;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      img {
+        max-width: 100%;
+        max-height: 100vh;
+        object-fit: contain;
+      }
+      .error {
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
+        color: #ff8888;
+        padding: 24px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content"></div>
+    <script src="gif_viewer.js"></script>
+  </body>
+</html>

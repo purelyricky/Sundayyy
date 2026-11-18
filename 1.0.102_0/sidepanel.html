@@ -1,0 +1,34 @@
+<!doctype html>
+<!--
+  Claus side panel: HTML shell. Loads assets/sidepanel.js (the chat UI; it drives Jev through assets/jev-client.js)
+  plus shared chunks and stylesheets into the empty #root div.
+-->
+<html
+  lang="en"
+  data-theme="claude"
+  data-mode="light"
+  data-density="comfortable"
+  class="cds-root"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/icon-128.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Claus</title>
+    <script type="module" crossorigin src="/assets/sidepanel.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-and-language-list.js">
+    <link rel="modulepreload" crossorigin href="/assets/i18n.js">
+    <link rel="modulepreload" crossorigin href="/assets/auth-and-saved-prompts.js">
+    <link rel="modulepreload" crossorigin href="/assets/datadog-browser-sdk-core.js">
+    <link rel="modulepreload" crossorigin href="/assets/scheduling-fields.js">
+    <link rel="modulepreload" crossorigin href="/assets/anthropic-sdk-errors.js">
+    <link rel="modulepreload" crossorigin href="/assets/browser-tools-and-permissions.js">
+    <link rel="modulepreload" crossorigin href="/assets/pairing-prompt.js">
+    <link rel="stylesheet" crossorigin href="/assets/i18n.css">
+    <link rel="stylesheet" crossorigin href="/assets/scheduling-fields.css">
+    <link rel="stylesheet" crossorigin href="/assets/sidepanel.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
